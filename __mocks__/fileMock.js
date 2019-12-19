@@ -1,1 +1,6 @@
-module.exports = 'test-file-stub';
+module.exports =  {
+    create: {
+        get: jest.fn(() => Promise.resolve({ data: {} }))
+    }
+    
+  };
