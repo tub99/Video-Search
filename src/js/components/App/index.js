@@ -17,7 +17,7 @@ class App extends Component {
   }
 
   handleSearch = async (keyword) => {
-    
+    console.log(keyword)
     const videoResp = await youtubeAPI.get('/search', {
       params: {
         ...defaultParams,

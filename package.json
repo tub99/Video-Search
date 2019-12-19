@@ -6,6 +6,7 @@
         "start": "webpack-dev-server --open --mode development --hot",
         "build": "webpack --mode production",
         "test": "jest",
+        "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand",
         "test:coverage": "jest --coverage",
         "test:watch": "jest --watch",
         "pretty": "prettier --check 'src/**/*.js'",
