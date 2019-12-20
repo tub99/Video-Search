@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SearchBar from '../SearchBar';
+import VideoList from '../VideoList';
 import youtubeAPI, { defaultParams } from '../../api/youtube';
 
 import './index.css';
@@ -17,14 +18,13 @@ class App extends Component {
   }
 
   handleSearch = async (keyword) => {
-    debugger;
     const videoResp = await youtubeAPI.get('/search', {
       params: {
         ...defaultParams,
         q: keyword
       }
     });
-    
+
     this.setState({
       videos: videoResp.data.items,
       nextPageToken: videoResp.data.nextPageToken,
@@ -58,6 +58,8 @@ class App extends Component {
         <header className="App-header">
           <SearchBar handleSubmit={this.handleSearch} />
         </header>
+        <VideoList videoData={videos} />
+       
       </div>
     );
   }
