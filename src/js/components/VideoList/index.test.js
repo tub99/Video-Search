@@ -8,7 +8,7 @@ describe('<Video List />', () => {
   beforeEach(() => {
     wrapper = shallow(<VideoList videoData={videos}  />);
   });
-  it('should render successfully', () => {
+  it('should check component instance', () => {
     expect(wrapper).toBeTruthy();
   });
   describe('HTML rendering', () => {
