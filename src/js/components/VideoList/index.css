@@ -1,0 +1,12 @@
+
+.list-container{
+    width: 70%;
+    margin: 0 auto;
+}
+
+@media (max-width:780px){
+    .list-container{
+        width: initial;
+        margin: 2px;
+    }
+}
