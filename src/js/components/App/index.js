@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import SearchBar from '../SearchBar';
 import VideoList from '../VideoList';
-import InifiniteScroll from '../InfiniteScroll';
+import InfiniteScroll from '../InfiniteScroll';
 import Spinner from '../Spinner';
 import youtubeAPI, { defaultParams } from '../../api/youtube';
 
@@ -37,6 +37,7 @@ class App extends Component {
 
   handleEOPReach = async () => {
     const { searchKeyword, nextPageToken, videos, hasMore } = this.state;
+    //if no more videos left to fetch 
     if (hasMore !== undefined && !hasMore) return;
     this.setState({ isLoading: true });
     const resp = await youtubeAPI.get('/search', {
@@ -72,7 +73,7 @@ class App extends Component {
           <SearchBar handleSubmit={this.handleSearch} />
         </header>
         <VideoList videoData={videos} />
-        <InifiniteScroll handleEOPReach={this.handleEOPReach} />
+        <InfiniteScroll handleEOPReach={this.handleEOPReach} />
         {progressStatus}
       </div>
     );

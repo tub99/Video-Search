@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import debounce from "lodash.debounce";
+import PropTypes from 'prop-types';
 
-class InifiniteScroll extends Component {
+class InfiniteScroll extends Component {
 
     constructor(props) {
         super(props);
@@ -17,10 +18,16 @@ class InifiniteScroll extends Component {
         }, 100);
     }
     render() {
-        
+
         return (<></>);
     }
 
 }
 
-export default InifiniteScroll;
+InfiniteScroll.propTypes = {
+    handleEOPReach: PropTypes.func.isRequired
+}
+InfiniteScroll.defaultProps = {
+    handleEOPReach: () => { }
+}
+export default InfiniteScroll;

@@ -32,7 +32,7 @@ describe.only('<App />', () => {
     });
   });
 
-  describe('InifiniteScroll', () => {
+  describe('InfiniteScroll', () => {
     beforeEach(async() => {
       const getRequest = mockAxios.create().get;
       getRequest.mockImplementationOnce(() =>
@@ -45,7 +45,7 @@ describe.only('<App />', () => {
       
     })
     it('should fetch more videos when user scrolls down to end of page', async () => {
-      await wrapper.find('InifiniteScroll').prop('handleEOPReach')();
+      await wrapper.find('InfiniteScroll').prop('handleEOPReach')();
       expect(wrapper.instance().state.videos.length).toBe(4);
       expect(wrapper.instance().state.videos[3]).toBe('black cat');
     });
@@ -57,7 +57,7 @@ describe.only('<App />', () => {
 
       });
       it('should remove spinner when user scrolls down and videos have loaded', async() => {
-        await wrapper.find('InifiniteScroll').prop('handleEOPReach')();
+        await wrapper.find('InfiniteScroll').prop('handleEOPReach')();
         expect(wrapper.instance().state.isLoading).toBeFalsy();
         expect(wrapper.find('Spinner').length).toBe(0);
       });

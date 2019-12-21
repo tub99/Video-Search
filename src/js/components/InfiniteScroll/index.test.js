@@ -1,22 +1,25 @@
 import React from 'react';
-import InifiniteScroll from '../InfiniteScroll';
-
-import { stub } from 'sinon';
+import InfiniteScroll from '../InfiniteScroll';
 
 
-describe('<InifiniteScroll />', () => {
+
+describe('<InfiniteScroll />', () => {
     let wrapper;
     beforeEach(() => {
-        wrapper = shallow(<InifiniteScroll />);
+        wrapper = shallow(<InfiniteScroll />);
     });
 
     it('should render searchbar successfully', () => {
         expect(wrapper).toBeTruthy();
     });
 
+    it('should have default handleEOPReach', () => {
+        expect(InfiniteScroll.defaultProps.handleEOPReach).toBeDefined();
+    });
+
     it('should call handleEOPReach when user has reached end of page', () => {
         const handleEOPReach = jest.fn();
-        wrapper = mount(<InifiniteScroll handleEOPReach={handleEOPReach} />);
+        wrapper = mount(<InfiniteScroll handleEOPReach={handleEOPReach} />);
         window.innerHeight = document.documentElement.scrollTop; // mock scroll to end of page
         window.onscroll();
         expect(handleEOPReach).toHaveBeenCalledTimes(1);

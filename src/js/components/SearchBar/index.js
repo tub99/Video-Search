@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import './index.css';
 
 class SearchBar extends Component {
@@ -23,13 +24,19 @@ class SearchBar extends Component {
         return (
             <div className="search">
                 <form onSubmit={this.onSubmit} className="search-form">
-                    <label style={{display:'none'}} htmlFor="video-search">Video Search</label>
+                    <label style={{ display: 'none' }} htmlFor="video-search">Video Search</label>
                     <input placeholder="Search" onChange={this.onChange} className="search-input" name="video-search" type="text" />
                     <button className="submit"></button>
                 </form>
-            </div>    
+            </div>
         )
     }
 }
 
+SearchBar.propTypes = {
+    handleSubmit: PropTypes.func.isRequired
+}
+SearchBar.defaultProps = {
+    handleSubmit: () => { }
+}
 export default SearchBar;

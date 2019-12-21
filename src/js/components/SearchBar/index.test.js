@@ -12,6 +12,10 @@ describe('<Search />', () => {
         expect(wrapper).toBeTruthy();
     });
 
+    it('should have default handleSubmit', () => {
+        expect(SearchBar.defaultProps.handleSubmit).toBeDefined();
+    });
+
     describe('Searching for a keyword', () => {
         it('should search for a keyword called agile when user searches for agile', () => {
             const onSearchClick = jest.fn();
@@ -22,8 +26,8 @@ describe('<Search />', () => {
             expect(onSearchClick).toHaveBeenCalledWith('agile');
         });
 
-        it('should update Search Keyword to agile when search is made with agile', ()=>{
-            wrapper.find('.search-input').simulate('change', {target: {value: 'agile'}});
+        it('should update Search Keyword to agile when search is made with agile', () => {
+            wrapper.find('.search-input').simulate('change', { target: { value: 'agile' } });
             expect(wrapper.instance().state.keyword).toBe('agile');
         });
     });
