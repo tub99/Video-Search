@@ -4,8 +4,8 @@ import './index.css';
 
 function VideoList(props) {
     const { videoData } = props;
-    let listItem = videoData.map(video => {
-        return (<VideoItem key={video.id.videoId || video.id.playlistId || video.etag} video={video}></VideoItem>);
+    let listItem = videoData.map((video, index) => {
+        return (<VideoItem key={index} video={video}></VideoItem>);
     });
     return (
         <div className="list-container">{listItem}</div>

@@ -2,9 +2,6 @@ import React from 'react';
 import App from '.';
 import SearchBar from '../SearchBar';
 
-import { stub } from 'sinon';
-
-
 describe('<Search />', () => {
     let wrapper;
     beforeEach(() => {
