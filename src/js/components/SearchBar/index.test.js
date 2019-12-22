@@ -1,9 +1,5 @@
 import React from 'react';
-import App from '.';
 import SearchBar from '../SearchBar';
-
-import { stub } from 'sinon';
-
 
 describe('<Search />', () => {
     let wrapper;
@@ -13,6 +9,10 @@ describe('<Search />', () => {
 
     it('should render searchbar successfully', () => {
         expect(wrapper).toBeTruthy();
+    });
+
+    it('should have default handleSubmit', () => {
+        expect(SearchBar.defaultProps.handleSubmit).toBeDefined();
     });
 
     describe('Searching for a keyword', () => {
@@ -25,9 +25,13 @@ describe('<Search />', () => {
             expect(onSearchClick).toHaveBeenCalledWith('agile');
         });
 
-        it('should update Search Keyword to agile when search is made with agile', ()=>{
-            wrapper.find('.search-input').simulate('change', {target: {value: 'agile'}});
+        it('should update Search Keyword to agile when search is made with agile', () => {
+            wrapper.find('.search-input').simulate('change', { target: { value: 'agile' } });
             expect(wrapper.instance().state.keyword).toBe('agile');
         });
+    });
+    
+    describe('Default Props', ()=>{
+        expect(SearchBar.defaultProps.handleSubmit()).toBe(null);
     });
 });
