@@ -33,7 +33,7 @@ describe.only('<App />', () => {
   });
 
   describe('InfiniteScroll', () => {
-    beforeEach(async() => {
+    beforeEach(async () => {
       const getRequest = mockAxios.create().get;
       getRequest.mockImplementationOnce(() =>
         Promise.resolve({
@@ -42,7 +42,7 @@ describe.only('<App />', () => {
       );
       // number of videos before scroll
       wrapper.instance().setState({ videos: ["video 1", "video 2"] });
-      
+
     })
     it('should fetch more videos when user scrolls down to end of page', async () => {
       await wrapper.find('InfiniteScroll').prop('handleEOPReach')();
@@ -52,11 +52,13 @@ describe.only('<App />', () => {
 
     describe('Spinner', () => {
       it('should load Spinner', () => {
+        wrapper.instance().setState({ hasMore: true });
         wrapper.instance().setState({ isLoading: true });
         expect(wrapper.find('Spinner').length).toBe(1);
 
       });
-      it('should remove spinner when user scrolls down and videos have loaded', async() => {
+
+      it('should remove spinner when user scrolls down and videos have loaded', async () => {
         await wrapper.find('InfiniteScroll').prop('handleEOPReach')();
         expect(wrapper.instance().state.isLoading).toBeFalsy();
         expect(wrapper.find('Spinner').length).toBe(0);

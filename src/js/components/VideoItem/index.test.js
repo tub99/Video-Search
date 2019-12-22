@@ -6,18 +6,18 @@ describe('<Video Item />', () => {
   let wrapper;
   const video = {
     snippet: {
-        title: 'Video Title',
-        channelTitle: 'My Channel',
-        description: 'This is a description',
-        thumbnails: {
-            medium:{
-                url:''
-            },
-            default:{
-                url: ''
-            }
-
+      title: 'Video Title',
+      channelTitle: 'My Channel',
+      description: 'This is a description',
+      thumbnails: {
+        medium: {
+          url: ''
+        },
+        default: {
+          url: ''
         }
+
+      }
     }
   };
   beforeEach(() => {
@@ -33,8 +33,12 @@ describe('<Video Item />', () => {
     });
 
     it('should check video contents', () => {
-        expect(wrapper.find('.video-title').text()).toBe('Video Title');
-        expect(wrapper.find('.video-item').length).toBe(1);
-      });
+      expect(wrapper.find('.video-title').text()).toBe('Video Title');
+      expect(wrapper.find('.video-item').length).toBe(1);
+    });
+  });
+
+  describe('Default Props', () => {
+    expect(VideoItem.defaultProps.video).toStrictEqual({});
   });
 });

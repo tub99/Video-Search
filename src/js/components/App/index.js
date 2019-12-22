@@ -15,7 +15,7 @@ class App extends Component {
       videos: [],
       nextPageToken: "",
       pageInfo: {},
-      hasMore: true
+      hasMore: null
     }
   }
 
@@ -38,7 +38,7 @@ class App extends Component {
   handleEOPReach = async () => {
     const { searchKeyword, nextPageToken, videos, hasMore } = this.state;
     //if no more videos left to fetch 
-    if (hasMore !== undefined && !hasMore) return;
+    if (hasMore !== null && !hasMore) return;
     this.setState({ isLoading: true });
     const resp = await youtubeAPI.get('/search', {
       params: {
@@ -46,14 +46,14 @@ class App extends Component {
         q: searchKeyword,
         pageToken: nextPageToken
       }
-    })
+    });
 
     this.setState({
       videos: [...videos, ...resp.data.items],
       nextPageToken: resp.data.nextPageToken,
       hasMore: this.state.pageInfo.totalResults - videos.length > 0 ? true : false,
       isLoading: false
-    })
+    });
 
   }
 
@@ -63,7 +63,7 @@ class App extends Component {
     //if user has reached the end of page and next set of video results are getting fetched show spinner at bottom
     if (hasMore && isLoading) {
       progressStatus = (<Spinner />);
-    } else if (!hasMore) {
+    } else if (hasMore !== null && !hasMore) {
       progressStatus = (<p>That's it no more videos to show...</p>);
     }
 
