@@ -24,4 +24,8 @@ describe('<Video List />', () => {
       expect(wrapper.find('.list-container').length).toBe(1);
     });
   });
+
+  describe('Default Props', () => {
+    expect(VideoList.defaultProps.videoData).toStrictEqual([]);
+  });
 });

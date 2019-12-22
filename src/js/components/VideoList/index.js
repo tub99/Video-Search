@@ -14,7 +14,7 @@ function VideoList(props) {
 }
 
 VideoList.propTypes = {
-    videoData: PropTypes.array.isRequired
+    videoData: PropTypes.array
 }
 VideoList.defaultProps = {
     videoData: []

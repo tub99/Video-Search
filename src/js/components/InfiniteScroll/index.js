@@ -25,9 +25,9 @@ class InfiniteScroll extends Component {
 }
 
 InfiniteScroll.propTypes = {
-    handleEOPReach: PropTypes.func.isRequired
+    handleEOPReach: PropTypes.func
 }
 InfiniteScroll.defaultProps = {
-    handleEOPReach: () => { }
+    handleEOPReach: () => null
 }
 export default InfiniteScroll;

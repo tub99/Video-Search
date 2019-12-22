@@ -23,5 +23,9 @@ describe('<InfiniteScroll />', () => {
         window.innerHeight = document.documentElement.scrollTop; // mock scroll to end of page
         window.onscroll();
         expect(handleEOPReach).toHaveBeenCalledTimes(1);
-    })
+    });
+
+    describe('Default Props', ()=>{
+        expect(InfiniteScroll.defaultProps.handleEOPReach()).toBe(null);
+    });
 });

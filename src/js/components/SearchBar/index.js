@@ -34,9 +34,9 @@ class SearchBar extends Component {
 }
 
 SearchBar.propTypes = {
-    handleSubmit: PropTypes.func.isRequired
+    handleSubmit: PropTypes.func
 }
 SearchBar.defaultProps = {
-    handleSubmit: () => { }
+    handleSubmit: () => null
 }
 export default SearchBar;

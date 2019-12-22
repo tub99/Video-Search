@@ -1,5 +1,4 @@
 import React from 'react';
-import App from '.';
 import SearchBar from '../SearchBar';
 
 describe('<Search />', () => {
@@ -30,5 +29,9 @@ describe('<Search />', () => {
             wrapper.find('.search-input').simulate('change', { target: { value: 'agile' } });
             expect(wrapper.instance().state.keyword).toBe('agile');
         });
+    });
+    
+    describe('Default Props', ()=>{
+        expect(SearchBar.defaultProps.handleSubmit()).toBe(null);
     });
 });

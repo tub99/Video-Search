@@ -19,7 +19,7 @@ function VideoItem(props) {
 }
 
 VideoItem.propTypes = {
-    video: PropTypes.object.isRequired
+    video: PropTypes.object
 }
 
 VideoItem.defaultProps = {
